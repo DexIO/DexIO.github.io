@@ -23,6 +23,40 @@
     <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDZuSkzye7zHX0sevrApS1Rxs_GOLMoBjc",
+        authDomain: "dexio-6c5a9.firebaseapp.com",
+        databaseURL: "https://dexio-6c5a9.firebaseio.com",
+        projectId: "dexio-6c5a9",
+        storageBucket: "dexio-6c5a9.appspot.com",
+        messagingSenderId: "760890043585"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css" />
+  <script type="text/javascript">
+   var uiConfig = {
+    signInSuccessUrl: 'loggedIn.html',
+    signInOptions: [
+     // Specify providers you want to offer your users.
+     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+     firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    // Terms of service url can be specified and will show up in the widget.
+    tosUrl: '<your-tos-url>'
+   };
+   // Initialize the FirebaseUI Widget using Firebase.
+   var ui = new firebaseui.auth.AuthUI(firebase.auth());
+   // The start method will wait until the DOM is loaded.
+   ui.start('#firebaseui-auth-container', uiConfig);
+</script>
+
 </head>
 <body id="top">
     <!--[if lt IE 8]>
@@ -287,18 +321,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
-                    <h3>Get started with Sedna, absolutely free</h3>
-                    <p>Grab your copy today, exclusively from Codrops</p>
-                    <form class="signup-form" action="#" method="POST" role="form">
-                        <div class="form-input-group">
-                            <i class="fa fa-envelope"></i><input type="text" class="" placeholder="Enter your email" required>
-                        </div>
-                        <div class="form-input-group">
-                            <i class="fa fa-lock"></i><input type="text" class="" placeholder="Enter your password" required>
-                        </div>
-                        <button type="submit" class="btn-fill sign-up-btn">Sign up for free</button>
-                    </form>
-                </div>
+                  <h1 align="center" style="color:white;">Firebase Auth Quickstart Demo</h1>
+                          <div id="firebaseui-auth-container"></div>                  </div>
             </div>
         </div>
     </section>
@@ -335,6 +359,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="bower_components/retina.js/dist/retina.js"></script>
